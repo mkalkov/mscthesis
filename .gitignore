@@ -1,0 +1,29 @@
+# See https://gist.github.com/kogakure/149016
+
+# LaTeX projects
+*.acn
+*.acr
+*.alg
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.na
+*.out
+*.snm
+*.synctex.gz
+*.toc
+

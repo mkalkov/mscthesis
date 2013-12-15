@@ -1,0 +1,11 @@
+# Rely on git heuristics to detect text fiels
+*       text=auto
+
+# The following patterns always contain text
+*.tex   text diff=tex
+
+# The following patterns always contain binary
+*.png   binary
+*.jpg   binary
+*.pdf   binary
+
