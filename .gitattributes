@@ -3,9 +3,11 @@
 
 # The following patterns always contain text
 *.tex   text diff=tex
+*.txt   text
 
 # The following patterns always contain binary
 *.png   binary
 *.jpg   binary
 *.pdf   binary
+*.gz    binary
 
