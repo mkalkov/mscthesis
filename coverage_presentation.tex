@@ -1,0 +1,185 @@
+% titlepage-demo.tex
+\documentclass{beamer}
+\hypersetup{colorlinks=true,linkcolor=red}
+\usetheme{Singapore}
+\useoutertheme{umbcfootline}
+
+% presentation metadata
+\title[IPv6 Adoption in a Local Area Network]{IPv6 Adoption in a Local Area Network}
+\subtitle[Bachelor's Thesis]{Bachelor's Thesis}
+\author[Mikhail Kalkov]{Mikhail Kalkov}
+\institute[RAMK]{
+  School of Technology\\
+  Rovaniemi University of Applied Sciences\\
+  Rovaniemi, Finland 96300\\[1ex]
+  \texttt{mikhail.kalkov@gmail.com}
+}
+\date[June 2009]{June 4, 2009}
+
+\begin{document}
+
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%--- the contents frame --------------------------%
+\frame{
+  \frametitle{Contents}
+
+\tableofcontents
+}
+
+%--- the presentation begins here ----------------%
+
+%--------------------
+\section{Introduction}
+
+
+\begin{frame}
+  \frametitle{The Internet}
+
+\begin{itemize}
+  \item \textbf{February 1958}. DARPA is established.
+  \item \textbf{May 1961}. L. Kleinrock "Information Flow in Large Communication Nets"
+  \item \textbf{October, 29 1969}. First ARPANET message
+  % They meant to send "LOGIN", but only "LO" got through.
+  \item \textbf{September 1971}. 18 nodes
+  \item \textbf{March 1977}. 54 nodes
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The \emph{Internet} Protocol}
+
+1974. Vint Cerf and Bob Kahn develop the first version of the IP.\\
+1981. The ARPANET switches to the Internet Protocol, version 4.\\
+
+\medskip
+Who could had thought that we would still be using IPv4 in 2009? 
+
+\pause
+\begin{center}Nobody could.\end{center}
+\begin{quote}
+"We thought we were doing an experiment to prove the technology and that if it worked we'd have an opportunity to do a production version of it. Well — it just escaped!" - Vint Cerf in 2008 (\href{http://www.youtube.com/watch?v=mZo69JQoLb8\#t=13m00s}{watch it}).
+\end{quote}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{IPv4 limitations}
+
+\begin{itemize}
+  \item \(2^{32} \approx 4,3 * 10^9\) addresses
+  \item It scales badly
+  \item The private address space is an afterthought
+  \item Security is an afterthought
+  \item Poor support for QoS provision and traffic engineering
+\end{itemize}
+\end{frame}
+
+
+%--------------------
+\section{Technical novations of IPv6}
+
+\begin{frame}
+  \frametitle{Scaling}
+
+\begin{description}
+  \item [128-bit addresses]
+  \item allow further growth of the Internet, and have numerous far-reaching consequences.
+  \pause
+  \item [Fixed-length header]
+  \item would decrease the load on router processors.
+  \pause
+  \item [No path fragmentation]
+  \item also contributes to decreasing router load.
+\end{description} 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Speed}
+
+\begin{description}
+  \item [Flow labeling]
+  \item makes reservation of bandwidth trivial.
+  \pause
+  \item [Packet sizes (min and max)]
+  \item were increased to suit modern networks.
+\end{description}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Ease of use}
+
+\begin{description}
+  \item [Neighbor discovery]
+  \item simplifies network management.
+  \pause
+  \item [Autoconfiguration]
+  \item makes installation of new devices, and renumbering trivial.
+  \pause
+  \item [Improved support for multicasting]
+  \item allows for more effective and secure bandwidth utilization.
+\end{description}
+\end{frame}
+
+%--------------------
+\section{The paradigm shift}
+
+\begin{frame}
+  \frametitle{"IPv4 with more addresses"}
+
+\begin{itemize}
+  \item The shift from address scarity to address abundance
+  \pause
+  \item Restoration of end-to-end connectivity (J. Postel, 1972)
+\end{itemize}
+\end{frame}
+
+%--------------------
+\section{Practical aspects}
+
+\subsection{Basics of IPv6}
+
+\begin{frame}
+  \frametitle{Basics of IPv6}
+
+\begin{description}
+  \item [Sample IPv6 address]
+  \item \texttt{2001:0DB8:7F61:88E6:FF00:89E6:5CC6:CE27}
+  \item [A more common example]
+  \item \texttt{2001:DB8::8:800:200C:417A}
+  \item [IPv6 localhost]
+  \item \texttt{::1}
+\end{description}
+\end{frame}
+
+\subsection{Accomplishments}
+
+\begin{frame}
+  \frametitle{Accomplishments}
+
+\begin{itemize}
+  \item IPv6 connectivity was obtained for the RAMK Cisco Networking Laboratory.\\
+  \item IPv6 was studied, and its understanding was captured in the thesis.\\
+  \item Several applications were tested in IPv6 environments, and common pitfalls were identified.
+\end{itemize}
+\end{frame}
+
+%--------------------
+\section{Question time}
+
+\begin{frame}
+  \frametitle{The End}
+
+\begin{center}
+  Any questions?
+\end{center}
+\end{frame}
+
+\end{document}
+
