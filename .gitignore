@@ -1,5 +1,8 @@
 # See https://gist.github.com/kogakure/149016
 
+*.pdf
+*.swp
+
 # LaTeX projects
 *.acn
 *.acr
@@ -21,9 +24,10 @@
 *.maf
 *.mtc
 *.mtc1
-*.na
+*.nav
 *.out
 *.snm
 *.synctex.gz
 *.toc
+*.vrb
 
