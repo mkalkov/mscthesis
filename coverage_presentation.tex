@@ -4,13 +4,27 @@
 \useoutertheme[subsection=false]{smoothbars}
 \useoutertheme{umbcfootline}
 
+\usepackage{listings}
+\definecolor{eclipse-red}{RGB}{127,0,65}
+\definecolor{eclipse-green}{RGB}{63,127,95}
+\definecolor{eclipse-blue}{RGB}{42,0,255}
+\definecolor{eclipse-gray}{RGB}{100,100,100}
+\lstset{language=Java,
+        basicstyle=\scriptsize\ttfamily,
+        keywordstyle=\color{eclipse-red},
+        commentstyle=\color{eclipse-green},
+        stringstyle=\color{eclipse-blue}\slshape,
+        showstringspaces=false,
+        escapechar=\$,
+}
+
+
+%--- Metadata -------------------------------------%
 % Audience:      master students at computer science and engineering department
 % Time budget:   30 min talk + 15 min questions + 15 min break
 % Sructure:      start from general, go into details, leave 2-3 min for conclusions
 % Thesis title:  Code coverage criteria and their effect on test suite qualities
 % Goal:          Present our work, i.e. what we have done
-
-% presentation metadata
 \title{Code coverage criteria and their effect on test suite qualities}
 \author[M.Kalkov \and D.Pamakha]
 {\texorpdfstring
@@ -36,166 +50,115 @@
 
 \begin{document}
 
-%--- the titlepage frame -------------------------%
+%--- Title frame ----------------------------------%
 \begin{frame}[plain]
   \titlepage
 \end{frame}
 
-%--- the contents frame --------------------------%
+%--- Contents -------------------------------------%
 \frame{
   \frametitle{Contents}
 
 \tableofcontents
 }
 
-%--- the presentation begins here ----------------%
 
-%--------------------
+%--------------------------------------------------%
 \section{Introduction}
 
+%--------------------------------------------------%
+\subsection{Motivational example}
 
+%--- Frame ----------------------------------------%
 \begin{frame}
-  \frametitle{The Internet}
-
-\begin{itemize}
-  \item \textbf{February 1958}. DARPA is established.
-  \item \textbf{May 1961}. L. Kleinrock "Information Flow in Large Communication Nets"
-  \item \textbf{October, 29 1969}. First ARPANET message
-  % They meant to send "LOGIN", but only "LO" got through.
-  \item \textbf{September 1971}. 18 nodes
-  \item \textbf{March 1977}. 54 nodes
-\end{itemize}
+  \frametitle{Motivational example}
+\begin{columns}[T]
+\begin{column}<2->{.5\textwidth}
+  \centering
+    Some program\\
+    \includegraphics[scale=0.5]{QuickPower.png}
+\end{column}
+\begin{column}<3->{.5\textwidth}
+  \centering
+    Unit tests\\
+    \includegraphics[scale=0.5]{QuickPowerTest.png}
+\end{column}
+\end{columns}
 \end{frame}
 
-
+%--- Frame ----------------------------------------%
 \begin{frame}
-  \frametitle{The \emph{Internet} Protocol}
+  \frametitle{Motivational example}
+\centering
+How do you know that you have not forgotten to test some behaviour?
+\end{frame}
 
-1974. Vint Cerf and Bob Kahn develop the first version of the IP.\\
-1981. The ARPANET switches to the Internet Protocol, version 4.\\
-
-\medskip
-Who could had thought that we would still be using IPv4 in 2009? 
-
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Motivational example}
+\centering
+It turns out many people use \emph{code coverage analysis} to answer this question.
 \pause
-\begin{center}Nobody could.\end{center}
-\begin{quote}
-"We thought we were doing an experiment to prove the technology and that if it worked we'd have an opportunity to do a production version of it. Well — it just escaped!" - Vint Cerf in 2008 (\href{http://www.youtube.com/watch?v=mZo69JQoLb8\#t=13m00s}{watch it}).
-\end{quote}
+\begin{columns}[T]
+\begin{column}{.5\textwidth}
+  \centering
+    \includegraphics[scale=0.5]{QuickPower_colored.png}
+\end{column}
+\begin{column}{.5\textwidth}
+  \centering
+    \includegraphics[scale=0.5]{QuickPowerTest.png}
+\end{column}
+\end{columns}
 \end{frame}
 
+%--------------------------------------------------%
+\subsection{Research questions}
 
+%--- Frame ----------------------------------------%
 \begin{frame}
-  \frametitle{IPv4 limitations}
-
+  \frametitle{Research questions}
 \begin{itemize}
-  \item \(2^{32} \approx 4,3 * 10^9\) addresses
-  \item It scales badly
-  \item The private address space is an afterthought
-  \item Security is an afterthought
-  \item Poor support for QoS provision and traffic engineering
+  \item What are common coverage criteria and their limits of applicability?
+  \pause
+  \item Which test suite qualities can be measured or affected by utilizing code coverage data?
+  \pause
+  \item What are common ways to present code coverage data and do they faithfully reveal
+important test suite qualities?
+  \pause
+  \item How to implement an Eclipse plug-in for BullseyeCoverage so that code coverage data
+can be fully utilized?
 \end{itemize}
 \end{frame}
 
 
-%--------------------
-\section{Technical novations of IPv6}
+%--------------------------------------------------%
+\section{Coverage criteria}
 
+
+%--------------------------------------------------%
+\section{Test suite qualities}
+
+
+%--------------------------------------------------%
+\section{Coverage visualization}
+
+
+%--------------------------------------------------%
+\section{Bullseye plug-in for Eclipse}
+
+
+%--------------------------------------------------%
+\section{Conclusion}
+
+
+%--------------------------------------------------%
+\section{Discussion}
+
+%--- Frame ----------------------------------------%
 \begin{frame}
-  \frametitle{Scaling}
-
-\begin{description}
-  \item [128-bit addresses]
-  \item allow further growth of the Internet, and have numerous far-reaching consequences.
-  \pause
-  \item [Fixed-length header]
-  \item would decrease the load on router processors.
-  \pause
-  \item [No path fragmentation]
-  \item also contributes to decreasing router load.
-\end{description} 
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Speed}
-
-\begin{description}
-  \item [Flow labeling]
-  \item makes reservation of bandwidth trivial.
-  \pause
-  \item [Packet sizes (min and max)]
-  \item were increased to suit modern networks.
-\end{description}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Ease of use}
-
-\begin{description}
-  \item [Neighbor discovery]
-  \item simplifies network management.
-  \pause
-  \item [Autoconfiguration]
-  \item makes installation of new devices, and renumbering trivial.
-  \pause
-  \item [Improved support for multicasting]
-  \item allows for more effective and secure bandwidth utilization.
-\end{description}
-\end{frame}
-
-%--------------------
-\section{The paradigm shift}
-
-\begin{frame}
-  \frametitle{"IPv4 with more addresses"}
-
-\begin{itemize}
-  \item The shift from address scarity to address abundance
-  \pause
-  \item Restoration of end-to-end connectivity (J. Postel, 1972)
-\end{itemize}
-\end{frame}
-
-%--------------------
-\section{Practical aspects}
-
-\subsection{Basics of IPv6}
-
-\begin{frame}
-  \frametitle{Basics of IPv6}
-
-\begin{description}
-  \item [Sample IPv6 address]
-  \item \texttt{2001:0DB8:7F61:88E6:FF00:89E6:5CC6:CE27}
-  \item [A more common example]
-  \item \texttt{2001:DB8::8:800:200C:417A}
-  \item [IPv6 localhost]
-  \item \texttt{::1}
-\end{description}
-\end{frame}
-
-\subsection{Accomplishments}
-
-\begin{frame}
-  \frametitle{Accomplishments}
-
-\begin{itemize}
-  \item IPv6 connectivity was obtained for the RAMK Cisco Networking Laboratory.\\
-  \item IPv6 was studied, and its understanding was captured in the thesis.\\
-  \item Several applications were tested in IPv6 environments, and common pitfalls were identified.
-\end{itemize}
-\end{frame}
-
-%--------------------
-\section{Question time}
-
-\begin{frame}
-  \frametitle{The End}
-
 \begin{center}
-  Any questions?
+  Thank you for attention!\\
+  It is discussion time now.
 \end{center}
 \end{frame}
 
