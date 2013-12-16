@@ -1,30 +1,33 @@
-% titlepage-demo.tex
 \documentclass{beamer}
-%\hypersetup{colorlinks=true,linkcolor=red,pdfpagemode=FullScreen}
 \hypersetup{colorlinks=true,linkcolor=red}
-\usetheme{Singapore}
+\usetheme{Luebeck}
+\useoutertheme[subsection=false]{smoothbars}
 \useoutertheme{umbcfootline}
+
+% Audience:      master students at computer science and engineering department
+% Time budget:   30 min talk + 15 min questions + 15 min break
+% Sructure:      start from general, go into details, leave 2-3 min for conclusions
+% Thesis title:  Code coverage criteria and their effect on test suite qualities
+% Goal:          Present our work, i.e. what we have done
 
 % presentation metadata
 \title{Code coverage criteria and their effect on test suite qualities}
-\subtitle[MSc Thesis]{Master of Science Thesis}
 \author[M.Kalkov \and D.Pamakha]
-{
-  \texorpdfstring{
-    \begin{columns}[onlytextwidth]
-      \column{.45\linewidth}
-      \centering
-      Mikhail Kalkov\\
-      \href{mailto:mikhail.kalkov@gmail.com}{\texttt{\small mikhail.kalkov@gmail.com}}
-      \column{.45\linewidth}
-      \centering
-      Dzmitry Pamakha\\
-      \href{mailto:pomaxodv@gmail.com}{\texttt{\small pomaxodv@gmail.com}}
-    \end{columns}
-  }
+{\texorpdfstring
+  {\begin{columns}
+     \column{.45\linewidth}
+     \centering
+     Mikhail Kalkov\\
+     \href{mailto:mikhail.kalkov@gmail.com}{\texttt{\small mikhail.kalkov@gmail.com}}
+     \column{.45\linewidth}
+     \centering
+     Dzmitry Pamakha\\
+     \href{mailto:pomaxodv@gmail.com}{\texttt{\small pomaxodv@gmail.com}}
+   \end{columns}}
   {Mikhail Kalkov \and Dzmitry Pamakha}
 }
 \institute[Chalmers University of Technology]{
+  Master Programme in Software Engineering and Technology\\
   Computer Science and Engineering Department\\
   Chalmers University of Technology\\
   Gothenburg, Sweden
