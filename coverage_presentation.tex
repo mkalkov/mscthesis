@@ -144,13 +144,12 @@ It turns out many people use \emph{code coverage analysis} to answer this questi
 \begin{frame}
   \frametitle{Coverage criteria defined in DO-178B/ED-12B}
 \scriptsize
-\centering
-  \begin{tabular}{ p{4cm} | l*{6}{c} }
+  \begin{tabular}{ p{.35\linewidth} | l*{6}{c} }
   \hline
-  Requirements \textbackslash Criteria & Stat. & Decis.& Cond. & C/D & MC/DC & MCC \\ \hline
-  Every point of entry and exit in the program has been invoked at least once 
+  Requirements - Criteria & Stat. & Decis.& Cond. & C/D & MC/DC & MCC \\ \hline
+  Every point of entry and exit in the program has been invoked at least once%
     &   & + & + & + & + & + \\ \hline
-  Every statement in the program has been invoked at least once
+  Every statement in the program has been invoked at least once%
     &   &   &   &   &   &   \\ \hline
   Every decision in the program has taken all possible outcomes at least once
     &   & + &   & + & + & + \\ \hline
@@ -175,7 +174,84 @@ It turns out many people use \emph{code coverage analysis} to answer this questi
 %--------------------------------------------------%
 \section{Test suite qualities}
 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Verified qualities}
+\begin{columns}[t]
+\column<+->{.6\linewidth}
+\centering \large Test \textbf{case} qualities
+\begin{itemize}
+  \item necessary
+  \item correct
+  \item falsifiable
+  \item traceable to its source of origin
+  \item independent from other test cases
+  \item atomic
+  \item efficient
+  \item maintainable
+  \item consistent in the returned value
+\end{itemize}
+\column<+->{.4\linewidth}
+\centering \large Test \textbf{suite} qualities
+\begin{itemize}
+  \item complete
+  \item effective
+  \item minimal
+  \item consistent
+  \item modifiable
+  \item regression-sensitive
+\end{itemize}
+\end{columns}
+\end{frame}
+ 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Defect detection}
+\begin{columns}[T]
+\column{.4\textwidth}
+	\begin{itemize}
+		\item Errors of omission
+		\item Defect clusterization
+		\item Relationship to post-release defects
+		\item Regression sensitivity
+		\item Test suite minimization
+		\item Generation of test cases
+	\end{itemize}
+\column{.6\textwidth}
+	\includegraphics[scale=0.4]{coverage_vs_code_quality_chart.png}
+\end{columns}
+\end{frame}
 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Proposed qualities}
+\begin{columns}[t]
+\column{.6\linewidth}
+\centering \large Test \textbf{case} qualities
+\begin{itemize}
+  \item necessary
+  \item correct
+  \item falsifiable
+  \item traceable to its source of origin
+  \item independent from other test cases
+  \item atomic
+  \item efficient
+  \item maintainable
+  \item consistent in the returned value
+\end{itemize}
+\column{.4\linewidth}
+\centering \large Test \textbf{suite} qualities
+\begin{itemize}
+  \item \textcolor{red}{complete}
+  \item \textcolor{red}{effective}
+  \item \textcolor{red}{minimal}
+  \item consistent
+  \item modifiable
+  \item \textcolor{red}{regression-sensitive}
+\end{itemize}
+\end{columns}
+\end{frame}
+ 
 %--------------------------------------------------%
 \section{Coverage visualization}
 
