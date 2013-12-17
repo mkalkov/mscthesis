@@ -374,10 +374,87 @@ Suggestions based on case study:
 %--------------------------------------------------%
 \section{Bullseye plug-in for Eclipse}
 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Requirements on Bullseye plug-in}
+Major functional requirements:
+\begin{itemize}
+  \item Annotate source code with coverage information
+  \item Show aggregate coverage at class/file/directory level
+\end{itemize}
+Other functional requirements:
+\begin{itemize}
+  \item Soring and filtering based on user selection
+  \item Integration with Eclipse framework: persistance, code navigation, hide/unhide information on user request, update coverage information on external updates
+\end{itemize}
+Non-functional requirements:
+\begin{itemize}
+  \item Support coverage report with up to 10000 source files and source files with up to 10000 lines
+  \item Non-blocking UI
+  \item Lazy loading of plug-in
+\end{itemize}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Domain analysis and design}
+Input data
+\begin{itemize}
+  \item Report file in XML format 
+  \item Eclipse Modeling Framework (EMF)
+\end{itemize}
+Target environment
+\begin{itemize}
+  \item Java 6
+  \item Eclipse Platform 3.6, Eclipse C/C++ Development Tooling(CDT)
+\end{itemize}
+Design
+\begin{itemize}
+  \item Comprehensive usage of Eclipse extension points and API
+  \item Two independent tracks: the first for source code annotations and the second for coverage statistics view
+\end{itemize}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Results}
+\begin{columns}[T]
+\begin{column}{.6\textwidth}
+    \includegraphics[scale=0.5]{plugin_source.png}
+\end{column}
+\begin{column}{.4\textwidth}
+Column with coverage information is attached to the usual CDT editor. 
+Popup shows coverage for multiple annotations on the same line without changing source code.
+\end{column}
+\end{columns}
+\begin{columns}[T]
+\begin{column}{.6\textwidth}
+  \includegraphics[scale=0.4]{plugin_stat.png}
+\end{column}
+\begin{column}{.4\textwidth}
+Coverage statistics view shows function and C/D coverage on C/C++ sources organized as a tree.
+\end{column}
+\end{columns}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Experience}
+After 6 weeks of development, the first prototype was put in production.
+\begin{itemize}
+  \item Short iterations enable fast adoption of new requirements and more frequent deliveries
+  \item Good software architecture creates loosely coupled and easily extensible applications despite its big size
+  \item Industrial frameworks(in our case EMF) are extremely powerful and robust
+\end{itemize}
+\end{frame}
 
 %--------------------------------------------------%
 \section{Conclusion}
 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Conclusion}
+\end{frame}
 
 %--------------------------------------------------%
 \section{Discussion}
