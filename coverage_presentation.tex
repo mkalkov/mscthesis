@@ -142,6 +142,121 @@ can be fully utilized?
 %--------------------------------------------------%
 \section{Coverage visualization}
 
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Coverage data presentation}
+Case study of several code coverage tools with the following goals:
+\begin{itemize}
+  \item Which coverage criteria the tools support and how they present code coverage data
+  \item Which test suite qualities can be measured or affected using the data from the tools
+\end{itemize}
+\pause
+The following user stories are utilized:
+\begin{itemize}
+  \item Test suite completeness: reveal insufficiently tested components
+  \item Test suite minimization: run only relevant test cases to decrease testing time
+  \item Test suite prioritization: run tests in specific order to detect regresions quickly
+  \item Test suite maintainability: easily connect test cases and parts of software under test
+  \item Test case generation: generate missing test cases based on existing tests and code coverage
+\end{itemize}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Eclemma}
+Supports line, statement, method coverage for Java.
+\begin{columns}[T]
+\begin{column}{.7\textwidth}
+    \includegraphics[scale=0.25]{eclemma.png}
+\end{column}
+\begin{column}{.3\textwidth}
+Source code is annotated with green, red or yellow lines.\\
+Coverage statistics view provides line coverage on Java sources organized as a tree.
+\end{column}
+\end{columns}
+Eclemma addresses only the test suite completeness.
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Clover}
+Clover supports statement, decision and function criteria for Java.\newline
+Like Eclemma, Clover employs source code annotations and an aggregate coverage statistics view to visualize measurements.\\
+Additionally, Clover maps coverage provided by each test case to the source code.
+  \includegraphics[width=\textwidth]{clover_mantain.png}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Clover}
+More advaced features of Clover:
+\begin{itemize}
+  \item running tests based on their failure history or code changes
+  \item reordering of test cases based on their comparable coverage
+  \begin{item} treemap and complexity views
+    \begin{columns}[T]
+    \begin{column}{.5\textwidth}
+         \hfill
+         \includegraphics[scale=0.3]{clover_treemap.png}
+    \end{column}
+    \begin{column}{.6\textwidth}
+       \includegraphics[scale=0.55]{clover_complexity.png}
+    \end{column}
+    \end{columns}
+  \end{item}
+\end{itemize}
+Thus, Clover satisfies the test suite completeness, minimization, prioritization and maintainability stories.
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{BullseyeCoverage}
+Measures coverage for C/C++ using function and condition/ decision coverage metrics by instrumenting source code after a preprocessor but before a compiler.
+\begin{columns}[T]
+\begin{column}{.7\textwidth}
+  \includegraphics[scale=0.5]{bullseye_source.png}\\
+  \includegraphics[scale=0.4]{bullseye_stat.png}
+\end{column}
+\begin{column}{.3\textwidth}
+Column with coverage information is attached to read-only plain text code viewer.\\
+Coverage statistics view is similar to the one used by EclEmma and Clover.
+\end{column}
+\end{columns}
+Bullseye addresses the test suite completeness.
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{CTC++}
+CTC++ is another tool for C/C++ that  supports condition/ decision coverage as well as 
+more advanced multicondition coverage (MCC) and modified condition/decision coverage (MC/DC) criteria.
+\begin{columns}[T]
+\begin{column}{.6\textwidth}
+   \hfill
+    \includegraphics[scale=0.4]{ctc_source.png}
+\end{column}
+\begin{column}{.3\textwidth}
+Coverage information is shown in HTML files in the web browser via a column attached to the source code.
+\end{column}
+\end{columns}
+CTC++ satisfies only the test suite completeness.
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Coverage visualization conclusion}
+\begin{itemize}
+  \item All examined code coverage tools support test suite completeness analysis by annotating source code with coverage information and providing a coverage summary view
+  \item Other use cases are not widely supported due to lack of integration with test frameworks
+\end{itemize}
+Suggestions based on case analysis:
+\begin{itemize}
+  \item Develop code coverage tool together with a unit test framework or the whole language infrastructure 
+  \item Use logarithmic “coverage ranks” scale instead of linear percentage one
+  \item IDE integration helps a lot
+  \item Possibility to set  boundaries of software under test
+\end{itemize}
+\end{frame}
 
 %--------------------------------------------------%
 \section{Bullseye plug-in for Eclipse}
