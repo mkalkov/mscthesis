@@ -1,8 +1,4 @@
 \documentclass{beamer}
-\hypersetup{colorlinks=true,linkcolor=red,pdfpagemode=UseNone}
-\usetheme{Luebeck}
-\useoutertheme[subsection=false]{smoothbars}
-\useoutertheme{umbcfootline}
 
 \usepackage{listings}
 \definecolor{eclipse-red}{RGB}{127,0,65}
@@ -17,6 +13,11 @@
         showstringspaces=false,
         escapechar=\$,
 }
+
+\hypersetup{colorlinks=false,linkcolor=red,pdfpagemode=UseNone}
+\usetheme{Luebeck}
+\useoutertheme[subsection=false]{smoothbars}
+\useoutertheme{umbcfootline}
 
 
 %--- Metadata -------------------------------------%
@@ -445,6 +446,7 @@ After 6 weeks of development, the first prototype was put in production.
   \item Short iterations enable fast adoption of new requirements and more frequent deliveries
   \item Good software architecture creates loosely coupled and easily extensible applications despite its big size
   \item Industrial frameworks(in our case EMF) are extremely powerful and robust
+  \item Access to Eclipse source code flattens learning curve and simplifies development
 \end{itemize}
 \end{frame}
 
@@ -454,6 +456,12 @@ After 6 weeks of development, the first prototype was put in production.
 %--- Frame ----------------------------------------%
 \begin{frame}
   \frametitle{Conclusion}
+\begin{itemize}
+  \item All research questions have been answered
+  \item The BullseyeCoverage plug-in was put into production
+  \item Issues pertaining to practical aspects of code coverage were identified
+  \item Directions for further work were suggested
+\end{itemize}
 \end{frame}
 
 %--------------------------------------------------%
