@@ -1,5 +1,5 @@
 \documentclass{beamer}
-\hypersetup{colorlinks=true,linkcolor=red}
+\hypersetup{colorlinks=true,linkcolor=red,pdfpagemode=UseNone}
 \usetheme{Luebeck}
 \useoutertheme[subsection=false]{smoothbars}
 \useoutertheme{umbcfootline}
@@ -117,22 +117,59 @@ It turns out many people use \emph{code coverage analysis} to answer this questi
 %--- Frame ----------------------------------------%
 \begin{frame}
   \frametitle{Research questions}
-\begin{itemize}
+\begin{itemize}[<+->]
   \item What are common coverage criteria and their limits of applicability?
-  \pause
   \item Which test suite qualities can be measured or affected by utilizing code coverage data?
-  \pause
-  \item What are common ways to present code coverage data and do they faithfully reveal
-important test suite qualities?
-  \pause
-  \item How to implement an Eclipse plug-in for BullseyeCoverage so that code coverage data
-can be fully utilized?
+  \item What are common ways to present code coverage data and do they faithfully reveal important test suite qualities?
+  \item How to implement an Eclipse plug-in for BullseyeCoverage so that code coverage data can be fully utilized?
 \end{itemize}
 \end{frame}
 
 
 %--------------------------------------------------%
 \section{Coverage criteria}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{General considerations}
+\begin{itemize}[<+->]
+  \item Place of coverage analysis in software testing
+  \item Boundaries of software under test
+  \item Source code and object code coverage
+  \item Control flow and data flow criteria
+\end{itemize}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Coverage criteria defined in DO-178B/ED-12B}
+\scriptsize
+\centering
+  \begin{tabular}{ p{4cm} | l*{6}{c} }
+  \hline
+  Requirements \textbackslash Criteria & Stat. & Decis.& Cond. & C/D & MC/DC & MCC \\ \hline
+  Every point of entry and exit in the program has been invoked at least once 
+    &   & + & + & + & + & + \\ \hline
+  Every statement in the program has been invoked at least once
+    &   &   &   &   &   &   \\ \hline
+  Every decision in the program has taken all possible outcomes at least once
+    &   & + &   & + & + & + \\ \hline
+  Every condition in a decision in the program has taken all possible outcomes at least once
+    &   &   & + & + & + & + \\ \hline
+  Every condition in a decision has been shown to independently affect that decision’s outcome
+    &   &   &   &   & + & + \\ \hline
+  Every combination of condition outcomes within a decision has been invoked at least once
+    &   &   &   &   &   & + \\ \hline
+  \end{tabular}
+  Reference: \emph{Hayhurst-Veerhusen-Chilenski-Rierson 2001. A practical tutorial on MC/DC}
+\end{frame}
+
+%--- Frame ----------------------------------------%
+\begin{frame}
+  \frametitle{Criteria overview}
+\centering
+  \includegraphics<+->[scale=0.6]{coverage_criteria_relationships.png}
+\end{frame}
 
 
 %--------------------------------------------------%
